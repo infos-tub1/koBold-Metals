@@ -110,9 +110,9 @@ div.b-mobile {display:none;}
 <meta name='google-adsense-platform-domain' content='blogspot.com'/>
 </head>
 
-<!-- ADDED KOBOLD METALS HEADER STYLES -->
+<!-- UPDATED KOBOLD METALS HEADER STYLES - FIXED POSITIONING -->
 <style>
-    /* Professional Kobold Metals Header Styles */
+    /* Professional Kobold Metals Header Styles - FIXED */
     .site-header {
         background-color: #fff;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -120,6 +120,7 @@ div.b-mobile {display:none;}
         top: 0;
         z-index: 1000;
         width: 100%;
+        padding: 0;
     }
     
     .header-container {
@@ -129,68 +130,59 @@ div.b-mobile {display:none;}
         justify-content: space-between;
         align-items: center;
         padding: 0 20px;
+        min-height: 90px;
     }
     
-    /* Logo Styles - BIGGER and BOLDER */
+    /* Logo Styles - PROPERLY ALIGNED */
     .logo-container {
         display: flex;
         align-items: center;
-        padding: 15px 0;
-        position: relative;
+        height: 100%;
     }
     
     .logo-container img {
-        height: 80px;
+        height: 70px;
         width: auto;
-        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.15))
-                drop-shadow(0px 0px 2px rgba(0,0,0,0.2));
-        transition: transform 0.3s ease;
+        filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.1));
     }
     
-    .logo-container img:hover {
-        transform: scale(1.03);
+    /* Navigation Container - PROPERLY ALIGNED */
+    .nav-container {
+        display: flex;
+        align-items: center;
+        position: relative;
     }
     
-    .logo-container::after {
-        content: '';
-        position: absolute;
-        left: -15px;
-        right: -15px;
-        top: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(44, 90, 160, 0.03), rgba(44, 90, 160, 0.08));
-        border-radius: 10px;
-        z-index: -1;
-        opacity: 0.7;
-    }
-    
-    /* Navigation Styles */
+    /* Navigation Menu - PROPERLY SPACED */
     .nav-menu {
         display: flex;
         list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
     }
     
     .nav-item {
-        margin-left: 25px;
+        margin-left: 30px;
     }
     
     .nav-link {
         text-decoration: none;
-        color: #444;
-        font-weight: 500;
+        color: #2c5aa0;
+        font-weight: 600;
         font-size: 16px;
-        padding: 8px 0;
+        padding: 10px 5px;
         position: relative;
-        transition: color 0.3s;
+        transition: all 0.3s;
     }
     
     .nav-link:hover {
-        color: #2c5aa0;
+        color: #1e3d6f;
     }
     
     .nav-link.active {
-        color: #2c5aa0;
-        font-weight: 600;
+        color: #1e3d6f;
+        font-weight: 700;
     }
     
     .nav-link.active::after {
@@ -199,11 +191,35 @@ div.b-mobile {display:none;}
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 2px;
-        background-color: #2c5aa0;
+        height: 3px;
+        background-color: #1e3d6f;
+        border-radius: 3px;
     }
     
-    /* Mining Background Section - After Header */
+    /* Mobile menu toggle - PROPERLY POSITIONED */
+    .mobile-toggle {
+        display: none;
+        background: none;
+        border: 2px solid #2c5aa0;
+        font-size: 24px;
+        color: #2c5aa0;
+        cursor: pointer;
+        padding: 8px 12px;
+        margin: 0;
+        border-radius: 5px;
+        transition: all 0.3s;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .mobile-toggle:hover {
+        background-color: #2c5aa0;
+        color: white;
+    }
+    
+    /* Mining Background Section */
     .mining-background {
         background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), 
                     url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
@@ -254,8 +270,7 @@ div.b-mobile {display:none;}
     }
     
     .apply-scroll-btn {
-        
-	    background-color: #2c5aa0;
+        background-color: #2c5aa0;
         color: white;
         border: none;
         padding: 15px 40px;
@@ -270,45 +285,34 @@ div.b-mobile {display:none;}
     .apply-scroll-btn:hover {
         background-color: #1e3d6f;
         transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.15)
-		
-		
-		
-		
-		;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
     
-    /* Mobile menu toggle */
-    .mobile-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: #2c3e50;
-        cursor: pointer;
-    }
-    
-    /* Responsive Design */
+    /* Responsive Design - IMPROVED */
     @media (max-width: 768px) {
         .header-container {
             padding: 0 15px;
+            min-height: 80px;
         }
         
         .mobile-toggle {
-            display: block;
+            display: flex;
+            position: relative;
+            z-index: 1001;
         }
         
         .nav-menu {
             position: fixed;
-            top: 100px;
+            top: 80px;
             left: 0;
-            width: 100%;
+            right: 0;
             background-color: white;
             flex-direction: column;
             align-items: center;
             padding: 20px 0;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: none;
+            z-index: 1000;
         }
         
         .nav-menu.active {
@@ -318,15 +322,19 @@ div.b-mobile {display:none;}
         .nav-item {
             margin: 10px 0;
             margin-left: 0;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .nav-link {
+            padding: 12px 20px;
+            display: block;
+            font-size: 18px;
+            width: 100%;
         }
         
         .logo-container img {
-            height: 65px;
-        }
-        
-        .logo-container::after {
-            left: -10px;
-            right: -10px;
+            height: 60px;
         }
         
         .mining-background {
@@ -352,7 +360,7 @@ div.b-mobile {display:none;}
     
     @media (max-width: 480px) {
         .logo-container img {
-            height: 55px;
+            height: 50px;
         }
         
         .mining-background h1 {
@@ -362,9 +370,16 @@ div.b-mobile {display:none;}
         .apply-below-section h2 {
             font-size: 24px;
         }
+        
+        .mobile-toggle {
+            width: 45px;
+            height: 45px;
+            font-size: 22px;
+            padding: 6px 10px;
+        }
     }
 </style>
-<!-- END OF ADDED HEADER STYLES -->
+<!-- END OF UPDATED HEADER STYLES -->
 
 <body><script type="text/javascript">
     function setAttributeOnload(object, attribute, val) {
@@ -377,7 +392,7 @@ div.b-mobile {display:none;}
     }
  </script>
 
-<!-- ADDED KOBOLD METALS HEADER HTML -->
+<!-- UPDATED KOBOLD METALS HEADER HTML - PROPERLY ARRANGED -->
 <header class="site-header">
     <div class="header-container">
         <div class="logo-container">
@@ -386,7 +401,7 @@ div.b-mobile {display:none;}
         </div>
         
         <nav class="nav-container">
-            <button class="mobile-toggle" id="mobileToggle">
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
                 ☰
             </button>
             
@@ -425,16 +440,22 @@ div.b-mobile {display:none;}
 </div>
 
 <script>
-    // Mobile menu toggle functionality for the header only
+    // Mobile menu toggle functionality
     document.getElementById('mobileToggle').addEventListener('click', function() {
         const navMenu = document.getElementById('navMenu');
-        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
         
         // Change button text based on menu state
-        if (navMenu.classList.contains('active')) {
+        if (isActive) {
             this.innerHTML = '✕';
+            this.style.backgroundColor = '#2c5aa0';
+            this.style.color = 'white';
+            this.style.borderColor = '#2c5aa0';
         } else {
             this.innerHTML = '☰';
+            this.style.backgroundColor = 'transparent';
+            this.style.color = '#2c5aa0';
+            this.style.borderColor = '#2c5aa0';
         }
     });
     
@@ -447,18 +468,21 @@ div.b-mobile {display:none;}
                 navMenu.classList.remove('active');
                 const toggleBtn = document.getElementById('mobileToggle');
                 toggleBtn.innerHTML = '☰';
+                toggleBtn.style.backgroundColor = 'transparent';
+                toggleBtn.style.color = '#2c5aa0';
+                toggleBtn.style.borderColor = '#2c5aa0';
             }
         });
     });
     
     // Scroll to application form when "Apply Below" is clicked
     function scrollToApplication() {
-        // Your existing form has class="post" - scroll to it
         document.querySelector('.post').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
-<!-- END OF ADDED HEADER HTML -->
+<!-- END OF UPDATED HEADER HTML -->
 
+<!-- EVERYTHING BELOW REMAINS EXACTLY THE SAME -->
        
      
    
@@ -1779,21 +1803,3 @@ document.write(unescape('%20%3Cscript%20type%3D%22text/javascript%22%3E%0A%20var
 
   <script>/<![CDATA[/ cookieChoices = {}; /]]>/</script>
 </body></html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
